@@ -8,6 +8,8 @@ use Mix.Config
 # if you want to provide default values for your application for
 # 3rd-party users, it should be done in your "mix.exs" file.
 
+config :hcloud, api: "https://api.hetzner.cloud/v1/"
+
 # You can configure your application as:
 #
 #     config :hcloud, key: :value
@@ -18,7 +20,7 @@ use Mix.Config
 #
 # You can also configure a 3rd-party app:
 #
-#     config :logger, level: :info
+config :logger, level: :info
 #
 
 # It is also possible to import configuration files, relative to this
