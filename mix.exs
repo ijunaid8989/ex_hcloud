@@ -13,13 +13,14 @@ defmodule HetznerCloud.MixProject do
 
   def application do
     [
-      extra_applications: [:logger, :httpoison]
+      extra_applications: [:logger, :httpoison, :poison]
     ]
   end
 
   defp deps do
     [
-      {:httpoison, "~> 1.2"}
+      {:httpoison, "~> 1.2"},
+      {:poison, "~> 4.0"}
     ]
   end
 end
