@@ -17,7 +17,7 @@ defmodule HetznerCloud.MixProject do
 
   def package do
     [
-      name: :hcloud,
+      name: :ex_hcloud,
       maintainers: ["Junaid Farooq"],
       licenses: ["MIT"],
       docs: [extras: ["README.md"]],
