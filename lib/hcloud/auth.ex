@@ -1,4 +1,13 @@
 defmodule HetznerCloud.Auth do
+  @moduledoc """
+    This module is to initialize your auth client for every request.
+
+    ###Example
+        iex(1)> client = HetznerCloud.Auth.new("yourtoken")
+          %HetznerCloud.Auth{
+            token: "yourtoken"
+          }
+  """
   defstruct token: nil
 
   @type token :: %{token: binary}

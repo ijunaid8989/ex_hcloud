@@ -1,9 +1,20 @@
 defmodule HetznerCloud.VerifyAuth do
-
+  @moduledoc """
+    This is an extra module just to make sure your auth token is correct.
+  """
   alias HetznerCloud.RequestError
 
   @api Application.get_env(:hcloud, :api)
 
+  @doc """
+    ##Example
+        iex(1)> client = HetznerCloud.Auth.new("yourtoken")
+        %HetznerCloud.Auth{
+          token: "yourtoken"
+        }
+        iex(2)> HetznerCloud.VerifyAuth.verify(client)
+        %{:ok, 200}
+  """
   def verify(client) do
     %HetznerCloud.Auth{
       token: token
