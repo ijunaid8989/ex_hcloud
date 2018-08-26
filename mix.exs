@@ -35,7 +35,8 @@ defmodule HetznerCloud.MixProject do
     [
       {:httpoison, "~> 1.2"},
       {:poison, "~> 4.0"},
-      {:ex_doc, "~> 0.19", only: :dev, runtime: false}
+      {:ex_doc, "~> 0.19", only: :dev, runtime: false},
+      {:exvcr, "~> 0.10.2", only: :test}
     ]
   end
 end
