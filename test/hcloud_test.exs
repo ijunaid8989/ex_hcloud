@@ -14,4 +14,12 @@ defmodule HetznerCloudTest do
       assert HetznerCloud.VerifyAuth.verify(@client) == {:ok, 200}
     end
   end
+
+  test "test unauthorized client" do
+    use_cassette "when your token is wrong" do
+      {:error, %HetznerCloud.RequestError{code: status_code, type: type}} = HetznerCloud.VerifyAuth.verify(@client)
+      assert status_code == 401
+      assert type == "unauthorized"
+    end
+  end
 end

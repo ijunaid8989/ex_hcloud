@@ -1,0 +1,30 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "Authorization": "***"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.hetzner.cloud/v1/ssh_keys"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\n  \"error\": {\n    \"message\": \"unable to authenticate your token\",\n    \"code\": \"unauthorized\",\n    \"details\": null\n  }\n}\n",
+      "headers": {
+        "Server": "nginx",
+        "Date": "Tue, 11 Sep 2018 16:47:09 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "121",
+        "Connection": "keep-alive",
+        "www-authenticate": "Bearer realm=\"HC\", error=\"invalid_token\", error_description=\"The token you provided is invalid\"",
+        "x-correlation-id": "9dbe46b5-f025-491d-a9d8-e93ffba4b6e4",
+        "Strict-Transport-Security": "max-age=3600; preload"
+      },
+      "status_code": 401,
+      "type": "ok"
+    }
+  }
+]
