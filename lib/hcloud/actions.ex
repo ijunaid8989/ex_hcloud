@@ -88,4 +88,50 @@ defmodule HetznerCloud.Actions do
         {:error, error}
     end
   end
+
+  @doc """
+    This will fetch an action performed by the token holder's account with action ID
+
+    ##Example
+
+        iex(1)> client = HetznerCloud.Auth.new("yourtoken")
+        %HetznerCloud.Auth{
+          token: "yourtoken"
+        }
+        iex(2)> HetznerCloud.Actions.actions(client, "4342913")
+        %HetznerCloud.Action{
+          command: "create_server",
+          error: nil,
+          finished: "2018-08-07T12:13:52+00:00",
+          id: 4342913,
+          progress: 100,
+          resources: [%{"id" => 942959, "type" => "server"}],
+          started: "2018-08-07T12:13:33+00:00",
+          status: "success"
+        }
+  """
+  def action(client, id) do
+    %HetznerCloud.Auth{
+      token: token
+    } = client
+
+    with {:ok, body} <- request(:get, "actions/#{id}", token) do
+      decoded_body = Poison.decode! body
+      action = decoded_body["action"]
+
+      %HetznerCloud.Action{
+        id: action["id"],
+        command: action["command"],
+        status: action["status"],
+        progress: action["progress"],
+        started: action["started"],
+        finished: action["finished"],
+        resources: action["resources"],
+        error: action["error"]
+      }
+    else
+      {:error, error} ->
+        {:error, error}
+    end
+  end
 end
